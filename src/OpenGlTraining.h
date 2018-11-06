@@ -9,6 +9,7 @@
 
 class OpenGlTraining {
   Renderer renderer;
+  GLFWwindow *window;
 
 public:
   void init(GLFWwindow* window);

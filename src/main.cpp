@@ -49,6 +49,10 @@ int main()
     auto deltaTime = std::chrono::duration_cast<std::chrono::milliseconds>(clock::now() - (startTime + totalDeltaTime));
     totalDeltaTime += deltaTime;
 
+    int width, height;
+    glfwGetWindowSize(window, &width, &height);
+    glViewport(0, 0, width, height);
+
     // update
     openglTraining.update(deltaTime);
 

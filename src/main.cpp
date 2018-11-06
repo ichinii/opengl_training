@@ -25,7 +25,15 @@ int main()
   glfwMakeContextCurrent(window);
 
   // init glew
-  assert(!glewInit());
+  glewExperimental = GL_TRUE;
+  {
+    if (GLenum err = glewInit(); err != GLEW_OK)
+    {
+        /* Problem: glewInit failed, something is seriously wrong. */
+        fprintf(stderr, "Error: %s\n", glewGetErrorString(err));
+
+    }
+  }
 
   // time management for main loop (max 9223372036854775808 milliseconds)
   using namespace std::chrono_literals;

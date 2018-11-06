@@ -11,6 +11,8 @@ class Renderer {
     glm::mat4 mvp;
     GLuint vao;
     GLuint vbos[2];
+    GLint program;
+    GLuint texture;
 
 public:
     Renderer();

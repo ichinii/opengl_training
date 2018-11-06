@@ -5,12 +5,15 @@
 #include <GLFW/glfw3.h>
 #include "opengl_training.h"
 
-using namespace std::chrono_literals;
-
+void glfw_error_callback(int error, const char* description)
+{
+  std::cout << error << " " << description << std::endl;
+}
 
 int main()
 {
   // init glfw
+  glfwSetErrorCallback(glfw_error_callback);
   assert(glfwInit());
 
   // open window
@@ -25,6 +28,7 @@ int main()
   assert(!glewInit());
 
   // time management for main loop (max 9223372036854775808 milliseconds)
+  using namespace std::chrono_literals;
   using clock = std::chrono::steady_clock;
   auto startTime = clock::now();
   auto totalDeltaTime = 0ms;

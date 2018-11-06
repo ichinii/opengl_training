@@ -7,9 +7,9 @@
 
 class OpenGlTraining {
 public:
-  static void init(GLFWwindow* window);
-  static void update(std::chrono::milliseconds deltaTime);
-  static void render();
+  void init(GLFWwindow* window);
+  void update(std::chrono::milliseconds deltaTime);
+  void render();
 };
 
 #endif

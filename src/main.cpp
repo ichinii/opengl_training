@@ -3,7 +3,7 @@
 #include <chrono>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-#include "opengl_training.h"
+#include "OpenGlTraining.h"
 
 void glfw_error_callback(int error, const char* description)
 {

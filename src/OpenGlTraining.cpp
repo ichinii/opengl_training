@@ -1,4 +1,4 @@
-#include "opengl_training.h"
+#include "OpenGlTraining.h"
 
 void OpenGlTraining::init(GLFWwindow* window)
 {

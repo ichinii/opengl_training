@@ -1,12 +1,12 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.12)
 project(opengl_training)
 
 set(SOURCES
   src/main.cpp
-  src/opengl_training.cpp)
+        src/OpenGlTraining.cpp src/Renderer.cpp src/Renderer.h)
 
 set(HEADERS
-  src/opengl_training.h)
+        src/OpenGlTraining.h src/Renderer.cpp src/Renderer.h)
 
 set(CXX_FLAGS
   --std=c++17)

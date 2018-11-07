@@ -88,12 +88,17 @@ Renderer::Renderer() {
   positions.reserve(1024);
   uvs.reserve(1024);
 
-  texture = SOIL_load_OGL_texture(
+  int width, height, channels;
+  unsigned char *ht_map = SOIL_load_image (
     "terrain.png",
-    SOIL_LOAD_AUTO,
-    SOIL_CREATE_NEW_ID,
-    SOIL_FLAG_INVERT_Y
+    &width, &height, &channels,
+    SOIL_LOAD_RGBA
   );
+
+  glGenTextures(1, &texture);
+  glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, ht_map);
+  std::cout << texture << std::endl;
+  delete[] ht_map;
 }
 
 Renderer::~Renderer() {

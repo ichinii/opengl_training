@@ -5,5 +5,5 @@ uniform sampler2D tex;
 out vec4 fragColor;
 
 void main() {
-    fragColor = texture2D(tex, varriant_uv);
+    fragColor = vec4(texture2D(tex, varriant_uv).xyz, 1);
 }

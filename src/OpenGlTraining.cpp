@@ -9,7 +9,7 @@
 
 void OpenGlTraining::init(GLFWwindow* window)
 {
-    this->window = window;
+	this->window = window;
     loadWorld();
 }
 
@@ -20,18 +20,18 @@ void OpenGlTraining::update(std::chrono::milliseconds deltaTime)
 
 void OpenGlTraining::render()
 {
-    glm::mat4 m, v, p;
-    m = glm::mat4(1.0);
-    v = glm::mat4(1.0);
+	glm::mat4 m, v, p;
+	m = glm::mat4(1.0);
+	v = glm::mat4(1.0);
 
-    int width, height;
-    glfwGetWindowSize(window, &width, &height);
+	int width, height;
+	glfwGetWindowSize(window, &width, &height);
 
-    p = glm::ortho<float>(0, 16.f * width / height, 0, 16);
+	p = glm::ortho<float>(0, 16.f * width / height, 0, 16);
 
-    renderer.setMvp(p * v * m);
+	renderer.setMvp(p * v * m);
 
-    drawWorld();
+	drawWorld();
 
     renderer.flush();
 }
@@ -48,7 +48,7 @@ void OpenGlTraining::loadWorld() {
         while (getline(myFile, line))
             lines.push_back(line);
 
-        std::reverse(lines.begin(), lines.end());
+        reverse(lines.begin(), lines.end());
 
         for(const auto& l : lines) {
             istringstream stream(l);
@@ -72,7 +72,7 @@ void OpenGlTraining::drawWorld() {
     for (int i = 0; i < tileCount; ++i) {
         for (int j = 0; j < tileCount; ++j) {
             auto index = static_cast<std::size_t>(j + (i * tileCount));
-            renderer.drawTile(vec2(i, j), vec2(1, 1), world.at(index));
+            renderer.drawTile(vec2(j, i), vec2(1, 1), world.at(index));
         }
     }
 }

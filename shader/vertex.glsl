@@ -8,5 +8,5 @@ out vec2 varriant_uv;
 void main()
 {
     gl_Position = mvp * vec4(position, 0, 1);
-    varriant_uv = uv;
+    varriant_uv = vec2(uv.x, 1 - uv.y);
 }

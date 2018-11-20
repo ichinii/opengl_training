@@ -90,7 +90,7 @@ Renderer::Renderer() {
 
   int width, height, channels;
   unsigned char *ht_map = SOIL_load_image (
-    "terrain.png",
+    "res/terrain.png",
     &width, &height, &channels,
     SOIL_LOAD_RGBA
   );

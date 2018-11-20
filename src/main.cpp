@@ -19,7 +19,7 @@ int main()
   // open window
   glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
   glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 5);
-  auto* window = glfwCreateWindow(800, 600, "opengl_training", nullptr, nullptr);
+  auto* window = glfwCreateWindow(800, 800, "opengl_training", nullptr, nullptr);
   assert(window);
 
   glfwMakeContextCurrent(window);

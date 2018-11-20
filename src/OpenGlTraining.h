@@ -8,13 +8,13 @@
 #include <memory>
 
 class OpenGlTraining {
-  Renderer renderer;
-  GLFWwindow *window;
+	Renderer renderer;
+	GLFWwindow *window;
 
 public:
-  void init(GLFWwindow* window);
-  void update(std::chrono::milliseconds deltaTime);
-  void render();
+	void init(GLFWwindow* window);
+	void update(std::chrono::milliseconds deltaTime);
+	void render();
 };
 
 #endif

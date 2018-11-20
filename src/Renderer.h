@@ -6,21 +6,21 @@
 #include <GL/glew.h>
 
 class Renderer {
-    std::vector<glm::vec2> positions;
-    std::vector<glm::vec2> uvs;
-    glm::mat4 mvp;
-    GLuint vao;
-    GLuint vbos[2];
-    GLint program;
-    GLuint texture;
+	std::vector<glm::vec2> positions;
+	std::vector<glm::vec2> uvs;
+	glm::mat4 mvp;
+	GLuint vao;
+	GLuint vbos[2];
+	GLint program;
+	GLuint texture;
 
 public:
-    Renderer();
-    ~Renderer();
-    void drawTile(glm::vec2 position, glm::vec2 size, unsigned char tile);
-    void setMvp(glm::mat4 mvp);
-    void clear();
-    void flush();
+	Renderer();
+	~Renderer();
+	void drawTile(glm::vec2 position, glm::vec2 size, unsigned char tile);
+	void setMvp(glm::mat4 mvp);
+	void clear();
+	void flush();
 };
 
 

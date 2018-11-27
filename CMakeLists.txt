@@ -3,10 +3,16 @@ project(opengl_training)
 
 set(SOURCES
   src/main.cpp
+  src/OpenGlTraining.cpp
+	src/Renderer.cpp
 	src/gl.cpp
+	src/PlayerController.cpp)
 
 set(HEADERS
+  src/OpenGlTraining.h
+	src/Renderer.h
 	src/gl.h
+	src/PlayerController.h)
 
 set(CXX_FLAGS
   --std=c++17)

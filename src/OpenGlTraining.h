@@ -5,21 +5,22 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include "Renderer.h"
-#include <memory>
+#include "PlayerController.h"
 
 class OpenGlTraining {
 public:
-    void init(GLFWwindow* window);
-    void update(std::chrono::milliseconds deltaTime);
-    void render();
+	void init(GLFWwindow* window);
+	void update(std::chrono::milliseconds deltaTime);
+	void render();
 
 private:
-    Renderer renderer;
-    GLFWwindow *window;
-    std::vector<unsigned char> world;
+	Renderer renderer;
+	GLFWwindow *window;
+	std::vector<unsigned char> world;
+	PlayerController _playerController;
 
-    void drawWorld();
-    void loadWorld();
+	void drawWorld();
+	void loadWorld();
 };
 
 #endif

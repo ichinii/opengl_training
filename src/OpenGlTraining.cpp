@@ -10,7 +10,8 @@
 void OpenGlTraining::init(GLFWwindow* window)
 {
 	this->window = window;
-    loadWorld();
+	loadWorld();
+	_playerController.setWindow(window);
 }
 
 void OpenGlTraining::update(std::chrono::milliseconds deltaTime)

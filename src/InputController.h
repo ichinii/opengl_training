@@ -4,9 +4,9 @@
 #include <chrono>
 #include "gl.h"
 
-class PlayerController {
+class InputController {
 public:
-	PlayerController();
+	InputController();
 
 	void update(std::chrono::milliseconds deltaTile);
 	void setWindow(GLFWwindow* window);

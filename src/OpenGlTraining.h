@@ -5,7 +5,8 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include "Renderer.h"
-#include "PlayerController.h"
+#include "InputController.h"
+#include "Player.h"
 
 class OpenGlTraining {
 public:
@@ -17,8 +18,7 @@ private:
 	Renderer renderer;
 	GLFWwindow *window;
 	std::vector<unsigned char> world;
-	PlayerController playerController;
-	glm::vec2 playerPosition = glm::vec2(7.5f, 7.5f);
+	Player player;
 
 	void drawWorld();
 	void drawPlayer();

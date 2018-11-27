@@ -11,12 +11,14 @@ void OpenGlTraining::init(GLFWwindow* window)
 {
 	this->window = window;
 	loadWorld();
-	playerController.setWindow(window);
+	InputController controller;
+    controller.setWindow(window);
+    player.setInputController(controller);
 }
 
 void OpenGlTraining::update(std::chrono::milliseconds deltaTime)
 {
-    playerController.update(deltaTime);
+    player.update(deltaTime);
 }
 
 void OpenGlTraining::render()
@@ -81,9 +83,7 @@ void OpenGlTraining::drawWorld() {
 
 void OpenGlTraining::drawPlayer() {
     using namespace glm;
-    auto direction = playerController.direction();
-    playerPosition += direction * 0.1f;
-    renderer.drawPlayer(playerPosition, vec2(1,1), 0);
+    renderer.drawPlayer(player.position, vec2(1,1), 0);
 }
 
 

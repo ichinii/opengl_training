@@ -6,13 +6,13 @@ set(SOURCES
   src/OpenGlTraining.cpp
 	src/Renderer.cpp
 	src/gl.cpp
-	src/PlayerController.cpp)
+		src/InputController.cpp)
 
 set(HEADERS
   src/OpenGlTraining.h
 	src/Renderer.h
 	src/gl.h
-	src/PlayerController.h)
+		src/InputController.h src/Player.cpp src/Player.h)
 
 set(CXX_FLAGS
   --std=c++17)

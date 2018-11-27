@@ -1,10 +1,10 @@
-#include "PlayerController.h"
+#include "InputController.h"
 
-PlayerController::PlayerController()
+InputController::InputController()
 {
 }
 
-void PlayerController::update(std::chrono::milliseconds deltaTime)
+void InputController::update(std::chrono::milliseconds deltaTime)
 {
 	assert(_window);
 
@@ -28,11 +28,11 @@ void PlayerController::update(std::chrono::milliseconds deltaTime)
 		dir = glm::normalize(dir);
 }
 
-void PlayerController::setWindow(GLFWwindow* window)
+void InputController::setWindow(GLFWwindow* window)
 {
 	_window = window;
 }
 
-glm::vec2 PlayerController::direction() {
+glm::vec2 InputController::direction() {
 	return dir;
 }

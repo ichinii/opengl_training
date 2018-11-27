@@ -12,7 +12,7 @@ set(HEADERS
   src/OpenGlTraining.h
 	src/Renderer.h
 	src/gl.h
-		src/InputController.h src/Player.cpp src/Player.h)
+		src/InputController.h src/Player.cpp src/Player.h src/misc.h)
 
 set(CXX_FLAGS
   --std=c++17)

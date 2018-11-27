@@ -8,7 +8,7 @@ Renderer::Renderer()
 	glGenVertexArrays(1, &_vao);
 	glBindVertexArray(_vao);
 
-	// init position buffer
+	// init player.position buffer
 	glEnableVertexAttribArray(0);
 	glBindBuffer(GL_ARRAY_BUFFER, _vbos[0]);
 	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, nullptr);
@@ -123,22 +123,44 @@ void Renderer::drawTile(glm::vec2 position, glm::vec2 size, unsigned char tile)
 	_uvs.push_back((uv + glm::vec2(0, 1)) / uvSize);
 }
 
-void Renderer::drawPlayer(glm::vec2 position, glm::vec2 size, unsigned char tile)
+#include "misc.h"
+#include "Player.h"
+
+void Renderer::drawPlayer(glm::vec2 size, Player player)
 {
 	setTexture(PlayerTexture);
 
 	if (_positions.size() + 6 >= _positions.capacity())
 		flush();
 
-	_positions.push_back(position);
-	_positions.push_back(position + glm::vec2(size.x, 0));
-	_positions.push_back(position + glm::vec2(size.x, size.y));
+	_positions.push_back(player.position);
+	_positions.push_back(player.position + glm::vec2(size.x, 0));
+	_positions.push_back(player.position + glm::vec2(size.x, size.y));
 
-	_positions.push_back(position);
-	_positions.push_back(position + glm::vec2(size.x, size.y));
-	_positions.push_back(position + glm::vec2(0, size.y));
+	_positions.push_back(player.position);
+	_positions.push_back(player.position + glm::vec2(size.x, size.y));
+	_positions.push_back(player.position + glm::vec2(0, size.y));
 
-	glm::vec2 uv = glm::vec2(tile % 9, 3 - tile / 4);
+    unsigned char tile;
+
+
+	int animFrame = (player.walkDuration.count() / 100) % 8 + 1;
+
+    if (player.direction.x > 0) { // right
+		tile = 27;
+	} else if (player.direction.x < 0) { // left
+    	tile = 9;
+    } else if (player.direction.y > 0) { // up
+    	tile = 0;
+    } else { // down & idle
+		tile = 18;
+    }
+
+    if (glm::length(player.direction) > 0.f)
+    	tile += animFrame;
+
+
+	glm::vec2 uv = glm::vec2(tile % 9, 3 - tile / 9);
 	glm::vec2 uvSize(9, 4);
 	_uvs.push_back(uv / uvSize);
 	_uvs.push_back((uv + glm::vec2(1, 0)) / uvSize);

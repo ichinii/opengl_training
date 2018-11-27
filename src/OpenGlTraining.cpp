@@ -83,7 +83,7 @@ void OpenGlTraining::drawWorld() {
 
 void OpenGlTraining::drawPlayer() {
     using namespace glm;
-    renderer.drawPlayer(player.position, vec2(1,1), 0);
+    renderer.drawPlayer(vec2(3, 3), player);
 }
 
 

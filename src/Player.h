@@ -9,7 +9,9 @@
 class Player {
 public:
     glm::vec2 position;
-    float speed = 10.f;
+    glm::vec2 direction;
+    float speed = 2.f;
+    std::chrono::milliseconds walkDuration;
 
     Player();
     void update(std::chrono::milliseconds deltaTime);

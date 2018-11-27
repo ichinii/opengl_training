@@ -5,6 +5,7 @@
 #include <vector>
 #include <array>
 #include <GL/glew.h>
+#include "Player.h"
 
 class Renderer {
 public:
@@ -23,7 +24,7 @@ public:
 	void setMvp(glm::mat4 value);
 	void setTexture(Texture value);
 	void drawTile(glm::vec2 position, glm::vec2 size, unsigned char tile);
-	void drawPlayer(glm::vec2 position, glm::vec2 size, unsigned char tile);
+	void drawPlayer(glm::vec2 size, Player player);
 
 private:
 	GLint _program;

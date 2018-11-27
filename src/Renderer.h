@@ -23,6 +23,7 @@ public:
 	void setMvp(glm::mat4 value);
 	void setTexture(Texture value);
 	void drawTile(glm::vec2 position, glm::vec2 size, unsigned char tile);
+	void drawPlayer(glm::vec2 position, glm::vec2 size, unsigned char tile);
 
 private:
 	GLint _program;

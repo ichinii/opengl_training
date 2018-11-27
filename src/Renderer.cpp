@@ -36,6 +36,7 @@ Renderer::Renderer()
 	_texture = PlainTexture;
 	_textureIds[PlainTexture] = loadPlainTexture();
 	_textureIds[TerrainTexture] = loadTextureFromFile("res/terrain.png");
+	_textureIds[PlayerTexture] = loadTextureFromFile("res/skeleton.png");
 	glBindTexture(GL_TEXTURE_2D, _textureIds[_texture]);
 
 	setTexture(TerrainTexture);
@@ -98,6 +99,8 @@ void Renderer::setTexture(Texture value)
 
 void Renderer::drawTile(glm::vec2 position, glm::vec2 size, unsigned char tile)
 {
+	setTexture(TerrainTexture);
+
 	if (_positions.size() + 6 >= _positions.capacity())
 		flush();
 
@@ -119,3 +122,30 @@ void Renderer::drawTile(glm::vec2 position, glm::vec2 size, unsigned char tile)
 	_uvs.push_back((uv + glm::vec2(1, 1)) / uvSize);
 	_uvs.push_back((uv + glm::vec2(0, 1)) / uvSize);
 }
+
+void Renderer::drawPlayer(glm::vec2 position, glm::vec2 size, unsigned char tile)
+{
+	setTexture(PlayerTexture);
+
+	if (_positions.size() + 6 >= _positions.capacity())
+		flush();
+
+	_positions.push_back(position);
+	_positions.push_back(position + glm::vec2(size.x, 0));
+	_positions.push_back(position + glm::vec2(size.x, size.y));
+
+	_positions.push_back(position);
+	_positions.push_back(position + glm::vec2(size.x, size.y));
+	_positions.push_back(position + glm::vec2(0, size.y));
+
+	glm::vec2 uv = glm::vec2(tile % 9, 3 - tile / 4);
+	glm::vec2 uvSize(9, 4);
+	_uvs.push_back(uv / uvSize);
+	_uvs.push_back((uv + glm::vec2(1, 0)) / uvSize);
+	_uvs.push_back((uv + glm::vec2(1, 1)) / uvSize);
+
+	_uvs.push_back(uv / uvSize);
+	_uvs.push_back((uv + glm::vec2(1, 1)) / uvSize);
+	_uvs.push_back((uv + glm::vec2(0, 1)) / uvSize);
+}
+

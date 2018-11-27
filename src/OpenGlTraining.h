@@ -17,9 +17,11 @@ private:
 	Renderer renderer;
 	GLFWwindow *window;
 	std::vector<unsigned char> world;
-	PlayerController _playerController;
+	PlayerController playerController;
+	glm::vec2 playerPosition = glm::vec2(7.5f, 7.5f);
 
 	void drawWorld();
+	void drawPlayer();
 	void loadWorld();
 };
 

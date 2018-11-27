@@ -11,8 +11,11 @@ public:
 	void update(std::chrono::milliseconds deltaTile);
 	void setWindow(GLFWwindow* window);
 
+	glm::vec2 direction();
+
 private:
-	GLFWwindow* _window;
+	glm::vec2 dir = glm::vec2(0,0);
+	GLFWwindow* _window = nullptr;
 };
 
 #endif

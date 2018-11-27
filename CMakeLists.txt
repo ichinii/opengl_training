@@ -3,10 +3,10 @@ project(opengl_training)
 
 set(SOURCES
   src/main.cpp
-        src/OpenGlTraining.cpp src/Renderer.cpp src/Renderer.h)
+	src/gl.cpp
 
 set(HEADERS
-        src/OpenGlTraining.h src/Renderer.cpp src/Renderer.h)
+	src/gl.h
 
 set(CXX_FLAGS
   --std=c++17)
